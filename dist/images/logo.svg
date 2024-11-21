@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="50" viewBox="0 0 200 35">
+  <rect width="200" height="50" fill="#90EE90" rx="20" ry="30"/>
+  <text x="100" y="25" font-family="Arial, sans-serif" font-size="38" fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">
+    envelope
+  </text>
+</svg>
