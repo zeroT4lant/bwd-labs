@@ -1,159 +1,161 @@
 /* Основные стили */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .navigation {
-    position: relative;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  position: sticky; /* Фиксация шапки при прокрутке */
+  top: 0; /* Начало фиксации от верхней границы окна */
+  z-index: 1000; /* Приоритет отображения */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navigation {
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.menu li a:hover {
+  background-color: #555;
+}
+
+.menu li a.active {
+  background-color: #91d788;
+  pointer-events: none;
+}
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button {
+  background: #6fb47c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #7de497;
+}
+
+.burger-menu span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}
+
+.burger-menu.active {
+  background: none;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.burger-menu.active span {
+  display: none;
+}
+
+.burger-menu.active::before {
+  content: "✖"; /* Символ крестика */
+  font-size: 0.5rem;
+  color: white;
+}
+
+/* Главный контент */
+.main {
+  padding: 20px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-image {
+  flex: 1.5;
+  min-width: 300px;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
   .menu {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .menu li a:hover {
-    background-color: #555;
-  }
-  
-  .menu li a.active {
-    background-color: #91d788;
-    pointer-events: none;
-  }
-  
-  .burger-menu {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  button {
-    background: #6fb47c;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #7de497;
-  }
-  
-  .burger-menu span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: white;
-  }
-
-  .burger-menu.active {
-    background: none;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .burger-menu.active span {
-    display: none;
-  }
-
-  .burger-menu.active::before {
-    content: "✖"; /* Символ крестика */
-    font-size: 0.5rem;
-    color: white;
-  }
-  
-  /* Главный контент */
-  .main {
-    padding: 20px;
-  }
-  
-  .hero {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .hero-text {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .hero-image {
-    flex: 1.5;
-    min-width: 300px;
-  }
-  
-  .hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  /* Адаптивная верстка */
-  @media (max-width: 768px) {
-    .menu {
-        height: 100vh;
-        width: 100vw;
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 10%;
-        left: 0;
-        background-color: #333;
-        padding: 10px;
-      } 
-    
-      .menu.active {
-        display: flex;
-      }
-    
-      .burger-menu {
-        display: flex;
-      }
-    }
-  
-  @media (max-width: 480px) {
-    .hero {
+      height: 100vh;
+      width: 100vw;
+      display: none;
       flex-direction: column;
-      text-align: center;
+      position: fixed;
+      top: 10%;
+      left: 0;
+      background-color: #333;
+      padding: 10px;
+    } 
+  
+    .menu.active {
+      display: flex;
     }
   
-    .hero-text, .hero-image {
-      flex: 1;
+    .burger-menu {
+      display: flex;
     }
   }
-  
+
+@media (max-width: 480px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text, .hero-image {
+    flex: 1;
+  }
+}
